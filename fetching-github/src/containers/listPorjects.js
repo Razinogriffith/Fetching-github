@@ -11,6 +11,7 @@ export default function ListPorjects() {
     const [loading, setloading] = useState(false);
     const [currentPage, setcurrentPage] = useState(1);
     const [error, seterror] = useState(null);
+    const arowParging = type => type==='+' ?  setcurrentPage(currentPage+1) : setcurrentPage(currentPage-1)
     const pageing =number =>{setcurrentPage(number)}
     const fetchdata =pagenumber =>{
         setloading(true)
@@ -41,8 +42,9 @@ export default function ListPorjects() {
                 <spam>
                 <Project projects={projects}/> 
                 <Pagination 
-                Pageing={pageing}
+                pageing={pageing}
                 current={currentPage}
+                arow={arowParging}
                 />
                 </spam>
             }  
