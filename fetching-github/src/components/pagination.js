@@ -8,9 +8,10 @@ export default function Pagination({Pageing,current}) {
     }
 
     return (
-            <nav>
+            <nav style={{ alignItems: 'center' ,display: 'flex' , justifyContent: 'center'}}>
             {pagenumbers.map(number=> 
                 <Button key={number} 
+                
                 color= {number===current  ?'red':'grey' } 
                  onClick={()=>Pageing(number)}> {number}
                 </Button>

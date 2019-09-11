@@ -10,7 +10,7 @@ import { Link} from "react-router-dom";
 
 const Layout = (props) => (
   <div>
-    <Menu fixed='top' inverted>
+    <Menu  inverted>
       <Container>
         <Menu.Item  header>
           Fetching GitHub
@@ -20,9 +20,8 @@ const Layout = (props) => (
       </Container>
     </Menu>
 
-    <Container text style={{ marginTop: '7em' }}>
-      <Header as='h1'>Simple Project</Header>
-
+    <Container text style={{ marginTop: '2em' }}>
+      <Header as='h1'></Header>
         {props.children}
     </Container>
 

@@ -1,6 +1,6 @@
 import React, {useState,useEffect}  from 'react'
 import axios from 'axios'
-import { Segment, Loader, Dimmer, Container, Message } from 'semantic-ui-react'
+import { Segment, Loader, Dimmer, Message,Header } from 'semantic-ui-react'
 import Project from '../components/Project';
 import Pagination from '../components/pagination';
 import  {endpoint} from '../constants'
@@ -29,7 +29,8 @@ export default function ListPorjects() {
         fetchdata(currentPage)
     }, [currentPage])
     return (
-        <div>
+        <Segment >
+            <Header as='h1' style={{ marginBottom :'2em',  textAlign: 'center'}} >List of gitHub Repositorys in  page number {currentPage}</Header>
             {loading ? <Segment>
                     <Dimmer active inverted >
                         <Loader inverted content='Loading' />
@@ -37,15 +38,15 @@ export default function ListPorjects() {
                 </Segment>:  error ? <Message negative>
                     <Message.Header><p>{JSON.stringify(error)}</p></Message.Header>
                 </Message>: 
-                <Container>
+                <spam>
                 <Project projects={projects}/> 
                 <Pagination 
                 Pageing={pageing}
                 current={currentPage}
                 />
-                </Container>
+                </spam>
             }  
-        </div>
+            </Segment>
         )}
         
 
