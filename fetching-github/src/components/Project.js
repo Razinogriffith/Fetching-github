@@ -1,5 +1,8 @@
 import React  from 'react'
 import { Icon ,Item , Divider} from 'semantic-ui-react'
+import { Spring } from 'react-spring/renderprops'
+
+
 
 export default function Project(props) {
     const date=new Date()
@@ -10,6 +13,7 @@ export default function Project(props) {
         
     
     const projects = props.projects.map(project=>    
+        
     <Item.Group>
         <Item key={project.id}>
           <Item.Image  size='tiny' src={project.owner.avatar_url}/>
@@ -40,8 +44,18 @@ export default function Project(props) {
     </Item.Group>  
         ) 
     return (
-        <Item.Group>
-            {projects}
-        </Item.Group>
+        <Spring 
+        from={{opacity:0}}
+        to={{opacity:1}}
+        config={{duration:2000}}>
+            
+                {props=> (
+                <div style={props} >
+                    <Item.Group>
+                        {projects}
+                    </Item.Group>
+                 </div>) }
+            
+         </Spring>
     )
 }
